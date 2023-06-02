@@ -116,22 +116,15 @@
 @section('scripts')
 <?php $locale = App::getLocale(); ?>
 <script type="text/javascript">
-    $( document ).ready(function() {
-        $(document).keypressAction({
-            actions: [
-                { key: 'c', route: "<?= route('admin.blog.post.create') ?>" }
-            ]
-        });
-    });
     $(function () {
         $('.data-table').dataTable({
             "paginate": true,
             "lengthChange": true,
             "filter": true,
-            "sort": false,
+            "sort": true,
             "info": true,
             "autoWidth": true,
-            "order": [[ 0, "desc" ]],
+            "order": [[ 4, "desc" ]],
             "language": {
                 "url": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
             }
