@@ -111,6 +111,7 @@ class PostRepository extends EloquentBaseRepository
             ->with('tags.translations')
             ->whereStatus(Status::PUBLISHED)
             ->orderBy('post_date', 'DESC')
+            ->orderBy('id', 'DESC')
             ->get();
     }
 
