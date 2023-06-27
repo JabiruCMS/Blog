@@ -116,6 +116,30 @@ class PostRepository extends EloquentBaseRepository
     }
 
     /**
+     * Return all resources in the given language and category
+     *
+     * @return \Illuminate\Database\Eloquent\Collection<Post>
+     */
+    public function allTranslatedInByCategory($lang, ?int $categoryId = null): Collection
+    {
+        return $this->model
+            ->whereHas('translations', function (Builder $q) use ($lang) {
+                $q->where('locale', "$lang");
+                $q->where('title', '!=', '');
+            })
+            ->when($categoryId, function (Builder $query) use ($categoryId) {
+                $query->where('category_id', '=', $categoryId);
+            })
+            ->with('translations')
+            ->with('tags')
+            ->with('tags.translations')
+            ->whereStatus(Status::PUBLISHED)
+            ->orderBy('post_date', 'DESC')
+            ->orderBy('id', 'DESC')
+            ->get();
+    }
+
+    /**
      * Return the latest x blog posts
      * @param int $amount
      * @return Collection
