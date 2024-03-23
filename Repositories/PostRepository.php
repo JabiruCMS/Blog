@@ -146,7 +146,17 @@ class PostRepository extends EloquentBaseRepository
      */
     public function latest($amount = 5)
     {
-        return $this->model->whereStatus(Status::PUBLISHED)->orderBy('post_date', 'desc')->take($amount)->get();
+        return $this->model
+            ->whereStatus(Status::PUBLISHED)
+            ->orderBy('post_date', 'desc')
+            ->with([
+                'translations',
+                'category',
+                'category.translations',
+                'files',
+            ])
+            ->take($amount)
+            ->get();
     }
 
     /**

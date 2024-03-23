@@ -37,7 +37,7 @@ class Post extends Model implements TaggableInterface
     use Translatable, MediaRelation, MediaHelper, PresentableTrait, NamespacedEntity, TaggableTrait;
 
     public $translatedAttributes = ['title', 'slug', 'content', 'meta_title', 'meta_description', 'meta_keywords', 'og_title', 'og_description',];
-    protected $fillable = ['category_id', 'status', 'title', 'slug', 'content', 'post_date', 'meta_title', 'meta_description', 'meta_keywords', 'og_title', 'og_description',];
+    protected $fillable = ['id', 'category_id', 'status', 'title', 'slug', 'content', 'post_date', 'meta_title', 'meta_description', 'meta_keywords', 'og_title', 'og_description',];
 
     protected $table = 'blog__posts';
     protected $presenter = PostPresenter::class;
