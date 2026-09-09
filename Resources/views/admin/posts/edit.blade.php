@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('styles')
+    {!! Theme::style('vendor/jquery-ui/themes/base/datepicker.css') !!}
+    {!! Theme::style('vendor/jquery-ui/themes/smoothness/theme.css') !!}
 @stop
 
 @section('content-header')
