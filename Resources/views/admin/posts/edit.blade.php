@@ -84,7 +84,9 @@
 
                 @if (function_exists('Modules\Website\blogPost_route'))
                     <div class="form-group">
-                        <a href="{{ Modules\Website\blogPost_route($post, true) }}" class="btn btn-primary btn-flat" target="_blank">{{ trans('blog::post.form.preview post') }}</a>
+                        <a href="{{ Modules\Website\blogPost_route($post, true) }}" class="btn btn-primary" target="_blank" style="white-space: normal; max-width: 100%;">
+                            <i class="fa fa-eye" style="margin-right: 8px"></i>{{ trans('blog::post.form.preview post') }}
+                        </a>
                     </div>
                 @endif
             </div>
