@@ -28,6 +28,7 @@ return [
         'og_title' => 'OpenGraph titulek',
         'og_description' => 'OpenGraph popis',
         'post date' => 'Datum publikování',
+        'preview post' => 'Preview post',
     ],
     'navigation' => [
         'back to index' => 'Back to posts index',
